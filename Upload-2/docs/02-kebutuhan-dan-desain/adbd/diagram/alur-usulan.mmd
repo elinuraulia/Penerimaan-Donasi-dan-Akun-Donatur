@@ -1,0 +1,10 @@
+%% DRAF / USULAN
+flowchart TD
+  A["T-01 Donatur masuk dan mengisi data"] --> B["T-02 Identitas diverifikasi"]
+  B --> C{"T-03 Kecocokan pasti?"}
+  C -- "Ya" --> D["Disatukan otomatis"]
+  C -- "Mirip" --> E["Antrean konfirmasi"]
+  E --> D
+  D --> F["T-04 Bukti diterbitkan"]
+  F --> G["T-05 Bukti diunduh atau dikirim"]
+  G --> H["T-06 Riwayat dan arsip di akun"]

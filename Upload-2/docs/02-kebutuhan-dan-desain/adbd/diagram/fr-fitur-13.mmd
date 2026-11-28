@@ -1,0 +1,12 @@
+flowchart TD
+  S(["Mulai"]) --> P["Prakondisi: donatur punya donasi zakat pada tahun itu"]
+  P --> L1["Memilih tahun"]
+  L1 --> L2["Sistem menyusun rekap"]
+  L2 --> L3["Memberi nomor"]
+  L3 --> L4["Menyimpan dan menampilkan"]
+  L4 --> C{"Berhasil?"}
+  C -- "Ya" --> H["Rekap tersimpan"]
+  C -- "Tidak" --> G["Tidak ada donasi zakat; tidak diterbitkan"]
+  P -. "alternatif" .-> T["Petugas menerbitkan atas permintaan donatur"]
+  H --> E(["Selesai"])
+  G --> E

@@ -1,0 +1,15 @@
+%% ERD logis, DRAF. Skema final ditetapkan di dokumen perancangan.
+%% DONASI_RUJUKAN hanya pengenal dari Penerimaan Donasi (lewat API), bukan foreign key lintas subsistem.
+erDiagram
+  DONATUR ||--o{ IDENTITAS_MASUK : memiliki
+  DONATUR ||--o| PREFERENSI : mengatur
+  DONATUR ||--o{ PERSETUJUAN : memberi
+  DONATUR ||--o{ PENYATUAN : memiliki
+  DONASI_RUJUKAN ||--o{ PENYATUAN : dirujuk
+  DONASI_RUJUKAN ||--o| BUKTI_DONASI : memiliki
+  DONATUR ||--o{ REKAP_TAHUNAN : menerima
+  DONATUR ||--o{ PERMINTAAN_HAPUS : mengajukan
+  BUKTI_DONASI ||--o{ STATUS_KIRIM : dikirim
+  TEMPLATE_WHATSAPP ||--o{ STATUS_KIRIM : dipakai
+  AKUN_STAF ||--o{ LOG_AKSES : tercatat
+  DONATUR ||--o{ LOG_AKSES : diakses

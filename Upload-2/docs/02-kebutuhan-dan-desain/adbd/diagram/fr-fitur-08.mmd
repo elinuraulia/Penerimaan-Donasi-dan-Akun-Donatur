@@ -1,0 +1,10 @@
+flowchart TD
+  S(["Mulai"]) --> P["Prakondisi: memiliki kode verifikasi"]
+  P --> L1["Memasukkan kode"]
+  L1 --> L2["Sistem menampilkan ringkasan"]
+  L2 --> C{"Berhasil?"}
+  C -- "Ya" --> H["Tidak ada data berubah"]
+  C -- "Tidak" --> G["Kode tidak dikenal, “tidak ditemukan”"]
+  P -. "alternatif" .-> T["Bukti dibatalkan, tampil “Dibatalkan”"]
+  H --> E(["Selesai"])
+  G --> E
