@@ -1,0 +1,11 @@
+flowchart TD
+  S(["Mulai"]) --> P["Prakondisi: donasi berstatus Berhasil"]
+  P --> L1["Sistem atau petugas memicu penerbitan"]
+  L1 --> L2["Sistem memberi nomor urut"]
+  L2 --> L3["Menyimpan salinan isi"]
+  L3 --> C{"Berhasil?"}
+  C -- "Ya" --> H["Satu bukti tersimpan"]
+  C -- "Tidak" --> G["Status bukan Berhasil; ditolak"]
+  P -. "alternatif" .-> T["Donasi tanpa identitas, bukti atas nama “Hamba Allah” [USULAN]"]
+  H --> E(["Selesai"])
+  G --> E

@@ -1,0 +1,11 @@
+flowchart TD
+  S(["Mulai"]) --> P["Prakondisi: data donasi tersedia lewat API"]
+  P --> L1["Sistem menerima donasi"]
+  L1 --> L2["Membandingkan dengan identitas terverifikasi"]
+  L2 --> L3["Menyatukan dan mencatat dasarnya"]
+  L3 --> C{"Berhasil?"}
+  C -- "Ya" --> H["Donasi tersatukan atau menunggu konfirmasi"]
+  C -- "Tidak" --> G["Donasi sudah milik akun lain; sistem menolak"]
+  P -. "alternatif" .-> T["Kecocokan mirip masuk antrean; staf atau donatur mengonfirmasi atau menolak"]
+  H --> E(["Selesai"])
+  G --> E

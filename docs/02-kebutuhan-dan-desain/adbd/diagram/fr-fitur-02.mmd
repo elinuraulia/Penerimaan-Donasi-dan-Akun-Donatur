@@ -1,0 +1,11 @@
+flowchart TD
+  S(["Mulai"]) --> P["Prakondisi: donatur sudah login"]
+  P --> L1["Membuka profil"]
+  L1 --> L2["Mengubah data"]
+  L2 --> L3["Menyimpan"]
+  L3 --> C{"Berhasil?"}
+  C -- "Ya" --> H["Profil tersimpan"]
+  C -- "Tidak" --> G["Data tidak valid, sistem menolak"]
+  P -. "alternatif" .-> T["Ganti email memerlukan verifikasi"]
+  H --> E(["Selesai"])
+  G --> E

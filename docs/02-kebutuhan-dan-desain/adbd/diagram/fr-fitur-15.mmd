@@ -1,0 +1,12 @@
+flowchart TD
+  S(["Mulai"]) --> P["Prakondisi: akun bisnis, nomor, dan template disetujui Meta"]
+  P --> L1["Message masuk topic"]
+  L1 --> L2["Template diisi"]
+  L2 --> L3["Dikirim lewat API Meta"]
+  L3 --> L4["Status diterbitkan"]
+  L4 --> C{"Berhasil?"}
+  C -- "Ya" --> H["Status pengiriman tersedia"]
+  C -- "Tidak" --> G["Meta menolak atau gagal; status gagal diterbitkan"]
+  P -. "alternatif" .-> T["Kanal belum siap; konfigurasi template tetap memakai email"]
+  H --> E(["Selesai"])
+  G --> E

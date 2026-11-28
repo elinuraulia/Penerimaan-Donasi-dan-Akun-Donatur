@@ -1,0 +1,11 @@
+flowchart TD
+  S(["Mulai"]) --> P["Prakondisi: berperan Admin"]
+  P --> L1["Membuka log"]
+  L1 --> L2["Menyaring"]
+  L2 --> L3["Sistem menampilkan siapa membuka data siapa dan kapan"]
+  L3 --> C{"Berhasil?"}
+  C -- "Ya" --> H["Log tidak dapat diubah"]
+  C -- "Tidak" --> G["Non-Admin ditolak"]
+  P -. "alternatif" .-> T["Hasil kosong"]
+  H --> E(["Selesai"])
+  G --> E
