@@ -95,7 +95,7 @@ Dokumen untuk BMTZ. Setiap fitur dijelaskan dengan bahasa kerja. Data pada gamba
 
 **Prioritas:** Must. **Yang memakai:** Donatur, petugas donasi.
 
-**Apa yang dilakukan fitur ini.** Sistem menampilkan donasi milik akun dengan filter periode dan peruntukan, total donasi Berhasil, serta status donasi berulang. Tombol Kelola meminta signed URL berumur singkat ke subsistem Donasi Berulang lalu mengarahkan donatur tanpa login ulang.
+**Apa yang dilakukan fitur ini.** Sistem menampilkan donasi milik akun dengan filter periode dan peruntukan, total donasi Berhasil, serta status donasi berulang. Tombol Kelola meminta signed URL berumur singkat ke subsistem Donasi Berulang lalu mengarahkan donatur tanpa login ulang. Donasi yang dibatalkan atau dibalik oleh koreksi tidak dihitung dalam total; yang dihitung catatan penggantinya [USULAN].
 
 **Contoh kejadian.**
 
@@ -117,13 +117,14 @@ Dokumen untuk BMTZ. Setiap fitur dijelaskan dengan bahasa kerja. Data pada gamba
 
 **Prioritas:** Must. **Yang memakai:** Sistem, petugas donasi.
 
-**Apa yang dilakukan fitur ini.** Sistem menerbitkan satu bukti resmi per transaksi Berhasil dari semua kanal, termasuk donasi di booth. Bukti diberi nomor urut dan disimpan apa adanya; isinya tidak pernah dibuat ulang dari data terkini. Bila donasi dibatalkan atau dikembalikan, status bukti menjadi Dibatalkan [USULAN].
+**Apa yang dilakukan fitur ini.** Sistem menerbitkan satu bukti resmi per transaksi Berhasil dari semua kanal, termasuk donasi di booth. Bukti diberi nomor urut dan disimpan apa adanya; isinya tidak pernah dibuat ulang dari data terkini. Bila donasi dibatalkan, dikembalikan, atau dikoreksi lewat catatan pembalik dari Penerimaan Donasi, bukti lama menjadi Dibatalkan dan tetap disimpan; bila ada catatan pengganti berstatus Berhasil, terbit bukti baru dengan nomor baru [USULAN].
 
 **Contoh kejadian.**
 
 - Bila donasi Berhasil Rp100.000 dari booth, dan ketika bukti diterbitkan, maka bukti memuat nomor urut dan Rp100.000.
 - Bila bukti sudah terbit lalu nama donatur diubah, dan ketika bukti dibuka, maka isinya tetap seperti saat terbit.
 - Bila donasi berstatus Menunggu, dan ketika penerbitan diminta, maka sistem menolak.
+- Bila bukti Rp100.000 sudah terbit, dan ketika diterima catatan pembalik beserta catatan pengganti Rp150.000, maka bukti lama berstatus Dibatalkan dan terbit bukti baru Rp150.000 dengan nomor baru [USULAN].
 
 **Tampilan usulan.**
 
@@ -246,7 +247,7 @@ Dokumen untuk BMTZ. Setiap fitur dijelaskan dengan bahasa kerja. Data pada gamba
 
 **Prioritas:** Must. **Yang memakai:** Donatur, petugas donasi.
 
-**Apa yang dilakukan fitur ini.** Sistem menerbitkan rekapitulasi per tahun sebagai bukti setor zakat, memuat daftar donasi zakat Berhasil dan totalnya. Rekap yang sudah terbit disimpan apa adanya dengan nomor urut. Format yang diterima kantor pajak belum dikonfirmasi.
+**Apa yang dilakukan fitur ini.** Sistem menerbitkan rekapitulasi per tahun sebagai bukti setor zakat, memuat daftar donasi zakat Berhasil dan totalnya. Rekap yang sudah terbit disimpan apa adanya dengan nomor urut. Format yang diterima kantor pajak belum dikonfirmasi. Bila ada koreksi atas donasi yang sudah masuk rekap, rekap lama ditandai Dibatalkan dan rekap baru diterbitkan [USULAN].
 
 **Contoh kejadian.**
 

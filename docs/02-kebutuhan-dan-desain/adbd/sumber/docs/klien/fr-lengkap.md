@@ -284,7 +284,7 @@ Pesan galat: “Donasi sudah disatukan ke akun lain.”; “Alasan wajib diisi.�
 | Prioritas | Must |
 | Sumber | Workbook 3.2, 3.5, 3.7 |
 | Aktor | Donatur, petugas donasi |
-| Deskripsi | Sistem menampilkan donasi milik akun dengan filter periode dan peruntukan, total donasi Berhasil, serta status donasi berulang. Tombol Kelola meminta signed URL berumur singkat ke subsistem Donasi Berulang lalu mengarahkan donatur tanpa login ulang |
+| Deskripsi | Sistem menampilkan donasi milik akun dengan filter periode dan peruntukan, total donasi Berhasil, serta status donasi berulang. Tombol Kelola meminta signed URL berumur singkat ke subsistem Donasi Berulang lalu mengarahkan donatur tanpa login ulang. Donasi yang dibatalkan atau dibalik oleh koreksi tidak dihitung dalam total; yang dihitung catatan penggantinya [USULAN] |
 | Task proses | T-06 |
 
 **Alur**
@@ -322,7 +322,7 @@ Pesan galat: “Tanggal akhir tidak boleh sebelum tanggal awal.”; “Pengelola
 | Prioritas | Must |
 | Sumber | Workbook 3.2, 3.7 |
 | Aktor | Sistem, petugas donasi |
-| Deskripsi | Sistem menerbitkan satu bukti resmi per transaksi Berhasil dari semua kanal, termasuk donasi di booth. Bukti diberi nomor urut dan disimpan apa adanya; isinya tidak pernah dibuat ulang dari data terkini. Bila donasi dibatalkan atau dikembalikan, status bukti menjadi Dibatalkan [USULAN] |
+| Deskripsi | Sistem menerbitkan satu bukti resmi per transaksi Berhasil dari semua kanal, termasuk donasi di booth. Bukti diberi nomor urut dan disimpan apa adanya; isinya tidak pernah dibuat ulang dari data terkini. Bila donasi dibatalkan, dikembalikan, atau dikoreksi lewat catatan pembalik dari Penerimaan Donasi, bukti lama menjadi Dibatalkan dan tetap disimpan; bila ada catatan pengganti berstatus Berhasil, terbit bukti baru dengan nomor baru [USULAN] |
 | Task proses | T-04 |
 
 **Alur**
@@ -338,6 +338,7 @@ Pesan galat: “Tanggal akhir tidak boleh sebelum tanggal awal.”; “Pengelola
 - **Given** donasi Berhasil Rp100.000 dari booth, **When** bukti diterbitkan, **Then** bukti memuat nomor urut dan Rp100.000.
 - **Given** bukti sudah terbit lalu nama donatur diubah, **When** bukti dibuka, **Then** isinya tetap seperti saat terbit.
 - **Given** donasi berstatus Menunggu, **When** penerbitan diminta, **Then** sistem menolak.
+- **Given** bukti Rp100.000 sudah terbit, **When** diterima catatan pembalik beserta catatan pengganti Rp150.000, **Then** bukti lama berstatus Dibatalkan dan terbit bukti baru Rp150.000 dengan nomor baru [USULAN].
 
 **Mockup**
 
@@ -555,7 +556,7 @@ Pesan galat: “Tidak ada data.”
 | Prioritas | Must |
 | Sumber | Workbook 3.2 |
 | Aktor | Donatur, petugas donasi |
-| Deskripsi | Sistem menerbitkan rekapitulasi per tahun sebagai bukti setor zakat, memuat daftar donasi zakat Berhasil dan totalnya. Rekap yang sudah terbit disimpan apa adanya dengan nomor urut. Format yang diterima kantor pajak belum dikonfirmasi |
+| Deskripsi | Sistem menerbitkan rekapitulasi per tahun sebagai bukti setor zakat, memuat daftar donasi zakat Berhasil dan totalnya. Rekap yang sudah terbit disimpan apa adanya dengan nomor urut. Format yang diterima kantor pajak belum dikonfirmasi. Bila ada koreksi atas donasi yang sudah masuk rekap, rekap lama ditandai Dibatalkan dan rekap baru diterbitkan [USULAN] |
 | Task proses | T-04 |
 
 **Alur**

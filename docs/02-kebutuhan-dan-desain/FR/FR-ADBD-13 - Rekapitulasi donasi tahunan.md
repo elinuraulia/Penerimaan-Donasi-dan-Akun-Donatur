@@ -8,7 +8,7 @@ Kelompok 2 · Dosen: Endy Muhardin · Business Analyst: Eli Nur Aulia · Project
 | Prioritas | Must |
 | Sumber | Workbook 3.2 |
 | Aktor | Donatur, petugas donasi |
-| Deskripsi | Sistem menerbitkan rekapitulasi per tahun sebagai bukti setor zakat, memuat daftar donasi zakat Berhasil dan totalnya. Rekap yang sudah terbit disimpan apa adanya dengan nomor urut. Format yang diterima kantor pajak belum dikonfirmasi |
+| Deskripsi | Sistem menerbitkan rekapitulasi per tahun sebagai bukti setor zakat, memuat daftar donasi zakat Berhasil dan totalnya. Rekap yang sudah terbit disimpan apa adanya dengan nomor urut. Format yang diterima kantor pajak belum dikonfirmasi. Bila ada koreksi atas donasi yang sudah masuk rekap, rekap lama ditandai Dibatalkan dan rekap baru diterbitkan [USULAN] |
 | Task proses | T-04 |
 
 **Alur**

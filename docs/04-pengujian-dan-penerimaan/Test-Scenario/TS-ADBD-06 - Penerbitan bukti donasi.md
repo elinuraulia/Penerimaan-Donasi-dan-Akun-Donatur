@@ -15,3 +15,4 @@ Kebutuhan: FR-ADBD-06. Prioritas: Must. Prakondisi: donasi berstatus Berhasil.
 | TS-ADBD-06-05 | Batas (Boundary) | Dua permintaan bersamaan | Satu bukti, satu nomor |  |  |
 | TS-ADBD-06-06 | Batas (Boundary) | Data profil diubah setelah terbit | Bukti tidak berubah |  |  |
 | TS-ADBD-06-07 | Silang (Cross-check) | Isi bukti dibandingkan data donasi saat terbit | Sama persis |  |  |
+| TS-ADBD-06-08 | Kebalikan (Inverse) | Donasi dikoreksi setelah bukti terbit | Bukti lama Dibatalkan, bukti baru terbit |  |  |

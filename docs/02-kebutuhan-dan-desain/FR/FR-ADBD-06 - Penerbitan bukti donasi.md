@@ -8,7 +8,7 @@ Kelompok 2 · Dosen: Endy Muhardin · Business Analyst: Eli Nur Aulia · Project
 | Prioritas | Must |
 | Sumber | Workbook 3.2, 3.7 |
 | Aktor | Sistem, petugas donasi |
-| Deskripsi | Sistem menerbitkan satu bukti resmi per transaksi Berhasil dari semua kanal, termasuk donasi di booth. Bukti diberi nomor urut dan disimpan apa adanya; isinya tidak pernah dibuat ulang dari data terkini. Bila donasi dibatalkan atau dikembalikan, status bukti menjadi Dibatalkan [USULAN] |
+| Deskripsi | Sistem menerbitkan satu bukti resmi per transaksi Berhasil dari semua kanal, termasuk donasi di booth. Bukti diberi nomor urut dan disimpan apa adanya; isinya tidak pernah dibuat ulang dari data terkini. Bila donasi dibatalkan, dikembalikan, atau dikoreksi lewat catatan pembalik dari Penerimaan Donasi, bukti lama menjadi Dibatalkan dan tetap disimpan; bila ada catatan pengganti berstatus Berhasil, terbit bukti baru dengan nomor baru [USULAN] |
 | Task proses | T-04 |
 
 **Alur**
@@ -28,6 +28,7 @@ Kelompok 2 · Dosen: Endy Muhardin · Business Analyst: Eli Nur Aulia · Project
 - **Given** donasi Berhasil Rp100.000 dari booth, **When** bukti diterbitkan, **Then** bukti memuat nomor urut dan Rp100.000.
 - **Given** bukti sudah terbit lalu nama donatur diubah, **When** bukti dibuka, **Then** isinya tetap seperti saat terbit.
 - **Given** donasi berstatus Menunggu, **When** penerbitan diminta, **Then** sistem menolak.
+- **Given** bukti Rp100.000 sudah terbit, **When** diterima catatan pembalik beserta catatan pengganti Rp150.000, **Then** bukti lama berstatus Dibatalkan dan terbit bukti baru Rp150.000 dengan nomor baru [USULAN].
 
 **Mockup**
 

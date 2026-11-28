@@ -13,7 +13,7 @@ Sistem Akun Donatur dan Bukti Donasi · Baitulmal Tazkia
 | Project Manager     | Destri Komalasari                                                                                                                                                     |
 | Standar struktur    | ISO/IEC/IEEE 29148:2018, klausul 9.6 (isi SRS), sesuai workbook subbab 7.1; pemetaan bab di 5.5                                                            |
 | Versi               | 0.4 (draf)                                                                                                                                                 |
-| Tanggal dokumen     | 26 November 2026                                                                                                                                           |
+| Tanggal dokumen     | 28 November 2026                                                                                                                                           |
 | Penulis             | Eli Nur Aulia (Business Analyst)                                                                                                                           |
 | Status              | DRAF. Belum ada sign-off narasumber. Butir bertanda **\[DUGAAN\]** belum dikonfirmasi klien; **\[DRAF\]** belum disetujui final; **\[USULAN\]** usulan tim |
 | Sign-off narasumber | Belum (lihat 5.6)                                                                                                                                          |
@@ -176,7 +176,7 @@ Prioritas memakai MoSCoW **\[USULAN\]**.
 
 ### 1.9 Pembagian kebutuhan dari SRS gabungan v0.2
 
-Pembagian antara Kelompok 1 dan Kelompok 2 adalah **\[USULAN\]** dan perlu disepakati kedua kelompok.
+Pembagian antara Kelompok 1 dan Kelompok 2 adalah **\[USULAN\]** dan perlu disepakati kedua kelompok. Nomor FR pada tabel ini merujuk versi 0.2; SRS Kelompok 1 versi 0.4 memakai arti nomor yang berbeda.
 
 | **SRS v0.2** | **Kebutuhan** | **Pemilik** | **Di SRS ini** |
 |-------------------|-----------------------------------------------|-------------|------------------------------------|
@@ -204,6 +204,8 @@ Pembagian antara Kelompok 1 dan Kelompok 2 adalah **\[USULAN\]** dan perlu disep
 | 8 | Stakeholder register, piagam proyek, risk register, value chain dan RACI v0.1 | Draf, belum divalidasi |
 | 9 | Peta ketergantungan antarkelompok | **Belum disepakati** |
 | 10 | Contoh bukti donasi dan bukti setor zakat BMTZ | **Belum diterima** |
+| 11 | Workbook Proyek Kelompok 1, Penerimaan Donasi | Acuan batas lingkup dan antarmuka |
+| 12 | SRS-ID-001 versi 0.4 Kelompok 1, 27 November 2026 | Pembanding, belum disetujui |
 
 ## 3. Specific requirements (Persyaratan Spesifik)
 
@@ -255,12 +257,26 @@ Tidak ada perangkat keras khusus. Pengguna memakai ponsel atau laptop dengan per
 Kontrak rinci ditetapkan di dokumen OpenAPI dan tidak disalin ke SRS.
 
 | **ID** | **Pihak** | **Arah** | **Data** | **Pemilik data** | **Volume** | **Batas waktu response** | **Status** |
-|--------|----------------------------|------------------|------------------------------------------------------------|-------------------------|------------|--------------------------|---------------|
-| IF-01 | Penerimaan Donasi | Masuk | Referensi, nominal, waktu, kanal, status, peruntukan, kontak | Penerimaan Donasi | (isi) | (isi) | MENUNGGU DATA |
-| IF-02 | Donasi Berulang | Masuk | Status donasi berulang, signed URL | Donasi Berulang | (isi) | (isi) | MENUNGGU DATA |
+|---------|----------------|----------|--------------------------|----------------|----------|----------|--------------|
+| IF-01 | Penerimaan Donasi | Masuk | Nomor rujukan (UUID v7), nominal, waktu, kanal, status, peruntukan, kontak, catatan pembalik | Penerimaan Donasi | (isi) | (isi) | Menunggu data |
+| IF-02 | Donasi Berulang | Masuk | Status donasi berulang, signed URL | Donasi Berulang | (isi) | (isi) | Menunggu data |
 | IF-03 | Aplikasi Notifikasi Tazkia | Keluar dan masuk | Message OTP dan bukti; status kirim lewat Kafka | Subsistem ini (message) | (isi) | (isi) | DUGAAN |
 | IF-04 | Google (OpenID Connect) | Masuk | ID token | Google | (isi) | (isi) | DUGAAN |
 | IF-05 | API WhatsApp Meta | Keluar | Template, nomor tujuan, variabel | Subsistem ini | (isi) | (isi) | DUGAAN |
+
+**Kebutuhan data dari Penerimaan Donasi (IF-01).** Disusun dari workbook kedua kelompok; SRS Kelompok 1 versi 0.4 (27 November 2026) dipakai sebagai pembanding. Butir ini perlu disepakati.
+
+| **No** | **Yang disepakati** | **Dasar** | **Di SRS Kelompok 1 v0.4** |
+|-------|------------------------------------|--------------------------|------------------------------|
+| 1 | Catatan donasi dapat diambil subsistem ini lewat API | Workbook K1 3.5; workbook K2 3.5 | Antarmuka ke Kelompok 2 belum tercantum |
+| 2 | Data kontak donatur (nomor telepon, email) ikut dikirim | Workbook K1 bab 3 dan 3.5 | Belum ada pada kamus data donasi |
+| 3 | Koreksi dan pembatalan sebagai catatan pembalik | Workbook K1 3.2, 3.7 | Kebutuhannya belum tercantum |
+| 4 | Donasi booth termasuk kanal yang dicatat | Workbook K1 3.5; workbook K2 3.2 | Belum ada pada pilihan kanal |
+| 5 | Nomor rujukan donasi memakai UUID v7 | Workbook K1 3.7 | Format masih keputusan terbuka |
+| 6 | Daftar peruntukan dan program sebagai acuan tunggal | Workbook K1 3.2, 3.7 | Hanya kategori; pengelolaan program belum ada |
+| 7 | OpenAPI versi pertama minggu 5, dikunci versi 1.1 sebelum minggu 9, beserta data contoh | Workbook K1 3.2, 3.7 | Jadwal belum tercantum |
+
+Akun donatur, riwayat pemberian, dan bukti donasi dikerjakan subsistem ini (workbook K1 subbab 3.4).
 
 #### 3.1.4 Antarmuka komunikasi
 
@@ -754,7 +770,7 @@ Pesan galat: “Donasi sudah disatukan ke akun lain.”; “Alasan wajib diisi.�
 | Prioritas | Must |
 | Sumber | Workbook 3.2, 3.5, 3.7 |
 | Aktor | Donatur, petugas donasi |
-| Deskripsi | Sistem menampilkan donasi milik akun dengan filter periode dan peruntukan, total donasi Berhasil, serta status donasi berulang. Tombol Kelola meminta signed URL berumur singkat ke subsistem Donasi Berulang lalu mengarahkan donatur tanpa login ulang |
+| Deskripsi | Sistem menampilkan donasi milik akun dengan filter periode dan peruntukan, total donasi Berhasil, serta status donasi berulang. Tombol Kelola meminta signed URL berumur singkat ke subsistem Donasi Berulang lalu mengarahkan donatur tanpa login ulang. Donasi yang dibatalkan atau dibalik oleh koreksi tidak dihitung dalam total; yang dihitung catatan penggantinya [USULAN] |
 | Task proses | T-06 |
 
 **Acceptance criteria**
@@ -798,7 +814,7 @@ Pesan galat: “Tanggal akhir tidak boleh sebelum tanggal awal.”; “Pengelola
 | Prioritas | Must |
 | Sumber | Workbook 3.2, 3.7 |
 | Aktor | Sistem, petugas donasi |
-| Deskripsi | Sistem menerbitkan satu bukti resmi per transaksi Berhasil dari semua kanal, termasuk donasi di booth. Bukti diberi nomor urut dan disimpan apa adanya; isinya tidak pernah dibuat ulang dari data terkini. Bila donasi dibatalkan atau dikembalikan, status bukti menjadi Dibatalkan [USULAN] |
+| Deskripsi | Sistem menerbitkan satu bukti resmi per transaksi Berhasil dari semua kanal, termasuk donasi di booth. Bukti diberi nomor urut dan disimpan apa adanya; isinya tidak pernah dibuat ulang dari data terkini. Bila donasi dibatalkan, dikembalikan, atau dikoreksi lewat catatan pembalik dari Penerimaan Donasi, bukti lama menjadi Dibatalkan dan tetap disimpan; bila ada catatan pengganti berstatus Berhasil, terbit bukti baru dengan nomor baru [USULAN] |
 | Task proses | T-04 |
 
 **Acceptance criteria**
@@ -806,6 +822,7 @@ Pesan galat: “Tanggal akhir tidak boleh sebelum tanggal awal.”; “Pengelola
 - **Given** donasi Berhasil Rp100.000 dari booth, **When** bukti diterbitkan, **Then** bukti memuat nomor urut dan Rp100.000.
 - **Given** bukti sudah terbit lalu nama donatur diubah, **When** bukti dibuka, **Then** isinya tetap seperti saat terbit.
 - **Given** donasi berstatus Menunggu, **When** penerbitan diminta, **Then** sistem menolak.
+- **Given** bukti Rp100.000 sudah terbit, **When** diterima catatan pembalik beserta catatan pengganti Rp150.000, **Then** bukti lama berstatus Dibatalkan dan terbit bukti baru Rp150.000 dengan nomor baru [USULAN].
 
 **Mockup**
 
@@ -828,6 +845,7 @@ Pesan galat: “Bukti hanya untuk donasi berstatus Berhasil.”
 | Benar (Right) | Terbitkan untuk donasi Gagal | Ditolak |
 | Benar (Right) | Donasi dari booth | Bukti dibuat |
 | Kebalikan (Inverse) | Donasi dikembalikan | Bukti menjadi Dibatalkan |
+| Kebalikan (Inverse) | Donasi dikoreksi setelah bukti terbit | Bukti lama Dibatalkan, bukti baru terbit |
 | Batas (Boundary) | Dua permintaan bersamaan | Satu bukti, satu nomor |
 | Batas (Boundary) | Data profil diubah setelah terbit | Bukti tidak berubah |
 | Silang (Cross-check) | Isi bukti dibandingkan data donasi saat terbit | Sama persis |
@@ -920,7 +938,7 @@ Pesan galat: “Kode verifikasi tidak valid.”
 | Prioritas | Must |
 | Sumber | Workbook 3.2 |
 | Aktor | Donatur, petugas donasi |
-| Deskripsi | Sistem menerbitkan rekapitulasi per tahun sebagai bukti setor zakat, memuat daftar donasi zakat Berhasil dan totalnya. Rekap yang sudah terbit disimpan apa adanya dengan nomor urut. Format yang diterima kantor pajak belum dikonfirmasi |
+| Deskripsi | Sistem menerbitkan rekapitulasi per tahun sebagai bukti setor zakat, memuat daftar donasi zakat Berhasil dan totalnya. Rekap yang sudah terbit disimpan apa adanya dengan nomor urut. Format yang diterima kantor pajak belum dikonfirmasi. Bila ada koreksi atas donasi yang sudah masuk rekap, rekap lama ditandai Dibatalkan dan rekap baru diterbitkan [USULAN] |
 | Task proses | T-04 |
 
 **Acceptance criteria**
@@ -1164,6 +1182,7 @@ Aturan: tidak ada foreign key lintas subsistem; referensi donasi disimpan sebaga
 | BR-009 | Donasi hanya disatukan otomatis lewat email atau nomor telepon yang terverifikasi; setiap penyatuan dapat dibatalkan | Workbook |
 | BR-010 | Bukti dan rekap yang sudah terbit disimpan apa adanya beserta nomor urutnya | Workbook |
 | BR-011 | Penghapusan akun memutus hubungan akun dengan catatan donasi tanpa menghapus catatan donasi | Workbook |
+| BR-012 | Koreksi donasi diterima sebagai catatan pembalik yang merujuk donasi asalnya; subsistem ini tidak mengubah catatan lama | Workbook Kelompok 1 subbab 3.7 |
 
 ### 3.6 Design constraints (Batasan Desain)
 
@@ -1193,7 +1212,7 @@ Aturan: tidak ada foreign key lintas subsistem; referensi donasi disimpan sebaga
 | NFR-S2 | Keamanan     | Pembatasan akses diperiksa di server           | Permintaan tidak sah ditolak                    | DUGAAN        |
 | NFR-S3 | Privasi      | Data donatur diperlakukan sebagai data pribadi | Hanya pemilik dan peran berwenang               | USULAN        |
 | NFR-S4 | Keamanan     | Tidak ada kredensial di kode atau repository   | Pemindai rahasia lulus                          | DUGAAN        |
-| NFR-S5 | Retensi      | Data dan bukti disimpan sesuai ketentuan BMTZ  | Menunggu angka                                  | MENUNGGU DATA |
+| NFR-S5 | Retensi      | Data dan bukti disimpan sesuai ketentuan BMTZ  | Menunggu angka                                  | Menunggu data |
 | NFR-S6 | Ketersediaan | Layanan dapat diakses donatur                  | 99% per bulan                                   | USULAN        |
 | NFR-S7 | Keandalan    | Operasi multi-tabel atomik                     | Uji integrasi lulus                             | DUGAAN        |
 | NFR-S8 | Pemeliharaan | Dapat dijalankan dari dokumentasi              | Instalasi oleh orang luar tim berhasil          | DUGAAN        |
@@ -1271,7 +1290,7 @@ Penelusuran dua arah: kebutuhan, task proses, rancangan, uji.
 | FR-ADBD-03 | M1 | Should | Workbook 3.2; v0.2 FR-008 | T-01 | M1; UC-03 | AC FR-ADBD-03 (3) | Draf |
 | FR-ADBD-04 | M2 | Must | Workbook 3.2, 3.7; v0.2 FR-007 | T-03 | M2; UC-04 | AC FR-ADBD-04 (3) | Draf |
 | FR-ADBD-05 | M2 | Must | Workbook 3.2, 3.5, 3.7 | T-06 | M2; UC-05 | AC FR-ADBD-05 (3) | Draf |
-| FR-ADBD-06 | M3 | Must | Workbook 3.2, 3.7 | T-04 | M3; UC-06 | AC FR-ADBD-06 (3) | Draf |
+| FR-ADBD-06 | M3 | Must | Workbook 3.2, 3.7 | T-04 | M3; UC-06 | AC FR-ADBD-06 (4) | Draf |
 | FR-ADBD-07 | M3 | Must | Workbook 3.2, 3.5 | T-05 | M3; UC-07 | AC FR-ADBD-07 (3) | Draf |
 | FR-ADBD-08 | M3 | Could | Usulan tim | T-05 | M3; UC-08 | AC FR-ADBD-08 (2) | Ditahan (CR-02) |
 | FR-ADBD-09 | M4 | Must | Workbook Lampiran A; v0.2 NFR-001 | T-01 sampai T-06 | M4; UC-09 | AC FR-ADBD-09 (3) | Draf |
@@ -1386,6 +1405,7 @@ Manfaat tiap user story belum dapat ditelusuri ke catatan wawancara karena wawan
 | OD-012 | Siapa pemilik proses yang memvalidasi?       | Kebutuhan belum dapat disahkan   |
 | OD-013 | Apakah donatur juga wajib TOTP setelah login? | NFR-S11, FR-ADBD-01 |
 | OD-014 | Format bukti setor zakat yang diterima kantor pajak? | FR-ADBD-13 |
+| OD-015 | Apakah donasi yang dikoreksi otomatis mendapat bukti dan rekap baru? | FR-ADBD-06, 13 |
 
 ### 5.9 Risiko utama
 

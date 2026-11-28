@@ -14,7 +14,7 @@ Penelusuran dua arah: kebutuhan, task proses, rancangan, uji.
 | FR-ADBD-03 | M1 | Should | Workbook 3.2; v0.2 FR-008 | T-01 | M1; UC-03 | AC FR-ADBD-03 (3) | Draf |
 | FR-ADBD-04 | M2 | Must | Workbook 3.2, 3.7; v0.2 FR-007 | T-03 | M2; UC-04 | AC FR-ADBD-04 (3) | Draf |
 | FR-ADBD-05 | M2 | Must | Workbook 3.2, 3.5, 3.7 | T-06 | M2; UC-05 | AC FR-ADBD-05 (3) | Draf |
-| FR-ADBD-06 | M3 | Must | Workbook 3.2, 3.7 | T-04 | M3; UC-06 | AC FR-ADBD-06 (3) | Draf |
+| FR-ADBD-06 | M3 | Must | Workbook 3.2, 3.7 | T-04 | M3; UC-06 | AC FR-ADBD-06 (4) | Draf |
 | FR-ADBD-07 | M3 | Must | Workbook 3.2, 3.5 | T-05 | M3; UC-07 | AC FR-ADBD-07 (3) | Draf |
 | FR-ADBD-08 | M3 | Could | Usulan tim | T-05 | M3; UC-08 | AC FR-ADBD-08 (2) | Ditahan (CR-02) |
 | FR-ADBD-09 | M4 | Must | Workbook Lampiran A; v0.2 NFR-001 | T-01 sampai T-06 | M4; UC-09 | AC FR-ADBD-09 (3) | Draf |

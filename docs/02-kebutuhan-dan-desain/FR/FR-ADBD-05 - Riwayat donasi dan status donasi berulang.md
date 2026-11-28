@@ -8,7 +8,7 @@ Kelompok 2 · Dosen: Endy Muhardin · Business Analyst: Eli Nur Aulia · Project
 | Prioritas | Must |
 | Sumber | Workbook 3.2, 3.5, 3.7 |
 | Aktor | Donatur, petugas donasi |
-| Deskripsi | Sistem menampilkan donasi milik akun dengan filter periode dan peruntukan, total donasi Berhasil, serta status donasi berulang. Tombol Kelola meminta signed URL berumur singkat ke subsistem Donasi Berulang lalu mengarahkan donatur tanpa login ulang |
+| Deskripsi | Sistem menampilkan donasi milik akun dengan filter periode dan peruntukan, total donasi Berhasil, serta status donasi berulang. Tombol Kelola meminta signed URL berumur singkat ke subsistem Donasi Berulang lalu mengarahkan donatur tanpa login ulang. Donasi yang dibatalkan atau dibalik oleh koreksi tidak dihitung dalam total; yang dihitung catatan penggantinya [USULAN] |
 | Task proses | T-06 |
 
 **Alur**

@@ -33,6 +33,7 @@ Peluang (P) dan dampak (D) bernilai 1 (sangat rendah) sampai 5 (sangat tinggi). 
 | R-011 | Kredensial atau data asli masuk repository publik | Kebocoran data dan pelanggaran | 2 | 5 | 10 | Sedang |
 | R-012 | Perjanjian pemrosesan data dan kerahasiaan belum ditandatangani | Data asli tidak dapat diperiksa | 3 | 3 | 9 | Sedang |
 | R-013 | Deadline padat dan pekerjaan menumpuk pada satu orang | Deliverable terlambat atau mutunya turun | 4 | 3 | 12 | Sedang |
+| R-014 | SRS Kelompok 1 belum selaras dengan kebutuhan data subsistem ini | Riwayat dan bukti tidak dapat disusun | 4 | 4 | 16 | Tinggi |
 
 ## 3. Rencana penanganan
 
@@ -50,9 +51,11 @@ Peluang (P) dan dampak (D) bernilai 1 (sangat rendah) sampai 5 (sangat tinggi). 
 | R-011 | Hanya data sintetis; periksa sebelum commit | Cabut kredensial dan hapus dari riwayat | Dzaki (QC) | 4 Des 2026 | Terbuka |
 | R-012 | Tindak lanjuti dengan dosen dan PIC | Teruskan dengan data sintetis | Destri (PM) | 4 Des 2026 | Terbuka |
 | R-013 | Bagi tugas menurut RACI; pantau mingguan | Prioritaskan deliverable yang dinilai lebih dulu | Destri (PM) | 4 Des 2026 | Terbuka |
+| R-014 | Sepakati tujuh butir IF-01 pada SRS | Pakai data contoh dan eskalasi ke dosen | Destri (PM) | 4 Des 2026 | Terbuka |
 
 ## 4. Catatan tinjauan
 
 | **Tanggal** | **Perubahan** | **Oleh** |
 |------------------|----------------------------------------------|----------------|
 | 27 November 2026 | Register awal | Eli Nur Aulia |
+| 28 November 2026 | Tambah R-014 | Eli Nur Aulia |
